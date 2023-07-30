@@ -8,6 +8,7 @@ html,body{
     --very-dark-gray: hsl(0, 0%, 27%);
     --text: 12px;
     font-family: 'League Spartan', sans-serif;
+    overflow-y: hidden;
 }
 
 h1{
@@ -28,6 +29,7 @@ h1{
         "about"
         "hero3"
     ;
+    grid-auto-rows: minmax(0, 1fr);
 }
 
 .hero{
@@ -35,7 +37,7 @@ h1{
     background-position: center;
     background-size: cover;
     grid-area: hero;
-    min-height: 44vh;
+    height: 44vh;
     padding: 7vh calc(6vw + 12px) 0vh 6vw;
 }
 
@@ -106,7 +108,7 @@ h1{
 }
 
 .arrow-shop{
-    width: 10vw;
+    width: 32px;
     height: auto;
 }
 
@@ -190,4 +192,100 @@ h1{
     height: 15px;
     width: auto;
     margin-left: 6vw;
+}
+
+.desk{
+    display: none;
+}
+
+
+@media (min-width:768px) {
+    .main{
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+        grid-template-areas: 
+        "hero hero hero hero discover discover discover"
+        "hero hero hero hero discover discover discover"
+        "hero hero hero hero discover discover discover"
+        "hero hero hero hero discover discover discover"
+        "hero2 hero2 about about about hero3 hero3"
+        "hero2 hero2 about about about hero3 hero3"
+        "hero2 hero2 about about about hero3 hero3"
+        ;
+    }
+    .hero{
+        background-image: url(images/desktop-image-hero-1.jpg);
+        background-position: center;
+        background-size: cover;
+        grid-area: hero;
+        width: auto;
+        padding: 0;
+        padding-top: 7vh;
+        padding-left: 4vw;
+        padding: 7vh 4vw 7vh 4vw;
+    }
+    .nav{
+        grid-area: discover;
+        justify-self: flex-start;
+        z-index: 1;
+        width: 120px;
+    }
+    .button{
+        width: 120px;
+    }
+    .discover{
+        height: auto;
+        padding: 5vh 12vw 0vh 7vw;
+    }
+    .header{
+        display: none;
+    }
+    .desk{
+        display: flex;
+        justify-content:space-around;
+        width: 40vw;
+        padding: 0;
+    }
+
+    .desk .logo{
+        justify-content: flex-start;
+        margin: 0;
+    }
+    
+    .desk .links{
+        display: flex;
+        flex-direction: row;
+        width: 25vw;
+        justify-content: space-around;
+        margin-left: 50px;
+        color: white;
+        font-size: 15px;
+    }
+    .desk .links a::after{
+        content: "";
+        display: block;
+        height: 3px;
+        background-color: white;
+        transform: scale(0,1);
+        transform-origin: center;
+        transition: transform .25s;
+    }
+    .desk .links a:hover::after{
+        transform: scale(1,1);
+    }
+    .shop a{ 
+        margin-right: 1vw;
+    }
+    .about{
+        padding: 0vh 8vw 0vh 4vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .hero2{
+        width: auto;
+    }
+    .hero3{
+        width: auto;
+    }
 }
