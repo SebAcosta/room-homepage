@@ -160,6 +160,7 @@
 	})
 	document.getElementById("prev").addEventListener("click", function () {
 		console.log("prev")
+		var url
 		active > 1 ? active-- : active = 3;
 		switch (active) {
 			case 1: {
@@ -169,7 +170,10 @@
 				div2.style.gridArea = ""
 				div3.style.display = "none"
 				div3.style.gridArea = ""
-				document.getElementById("hero").style.backgroundImage = "url(images/mobile-image-hero-1.jpg)"
+				isMobile()?
+					url = "url(images/mobile-image-hero-1.jpg)":
+					url = "url(images/desktop-image-hero-1.jpg)"
+				document.getElementById("hero").style.backgroundImage = url
 				break;
 			}
 			case 2: {
@@ -179,7 +183,10 @@
 				div2.style.gridArea = "discover"
 				div3.style.display = "none"
 				div3.style.gridArea = ""
-				document.getElementById("hero").style.backgroundImage = "url(images/mobile-image-hero-2.jpg)"
+				isMobile()?
+					url = "url(images/mobile-image-hero-2.jpg)":
+					url = "url(images/desktop-image-hero-2.jpg)"
+				document.getElementById("hero").style.backgroundImage = url
 				break;
 			}
 			case 3: {
@@ -189,7 +196,10 @@
 				div2.style.gridArea = ""
 				div3.style.display = "block"
 				div3.style.gridArea = "discover"
-				document.getElementById("hero").style.backgroundImage = "url(images/mobile-image-hero-3.jpg)"
+				isMobile()?
+					url = "url(images/mobile-image-hero-3.jpg)":
+					url = "url(images/desktop-image-hero-3.jpg)"
+				document.getElementById("hero").style.backgroundImage = url
 				break;
 			}
 		}
@@ -203,6 +213,17 @@
 	close.addEventListener("click", function () {
 		links.style.display = "none"
 	})
+
+
+	function isMobile() {
+		var screenWidth = window.screen.width;
+		var breakpoint = 768;
+		return screenWidth <= breakpoint;
+	}
+
+	if(isMobile()){
+
+	}
 </script>
 
 </html>

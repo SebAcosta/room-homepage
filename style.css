@@ -8,7 +8,7 @@ html,body{
     --very-dark-gray: hsl(0, 0%, 27%);
     --text: 12px;
     font-family: 'League Spartan', sans-serif;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 h1{
@@ -200,6 +200,9 @@ h1{
 
 
 @media (min-width:768px) {
+    html{
+        overflow-y: hidden;
+    }
     .main{
         grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
         grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
